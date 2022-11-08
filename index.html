@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breathtakers</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Breathtakers</a>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#creators">Creators</a></li>
+      </ul>
+    </header>
+    <section>
+      <img src="images/stars.png" id="stars" />
+      <img src="images/moon.png" id="moon" />
+      <img src="images/mountains_behind.png" id="mountains_behind" />
+      <h2 id="welcometext">Breathtakers</h2>
+      <a href="#sec" id="btn">About Us</a>
+      <img src="images/mountains_front.png" id="mountains_front" />
+    </section>
+    <div class="sec" id="sec">
+      <h2>The go-to tracking app to help curb smoking.</h2>
+      <p>
+        Breathtakers is a student-developed website that aims to motivate
+        current smokers to stop smoking through distractions and informative
+        news that sway them away from their unhealthy habits. <br /><br />
+        This website contains a
+        <strong>tracker to count non-smoking days</strong>,
+        <strong>games</strong> that divert users attention from smoking, a
+        <strong>news page</strong> that features smoking articles, and finally,
+        an <strong>events page</strong> where users can sign up for activites to
+        distract themselves from puffing. <br /><br />
+        We hope that this website can benefit those that require help, and even
+        those who prefer a discreet means of helping oneself. <br /><br />
+        Below are some helpful links about controls and programmes to limit
+        smoking in Singapore.
+      </p>
+      <br />
+      <ul>
+        <li>
+          <a
+            href="https://hpb.gov.sg/workplace/workplace-programmes/smoking-cessation-programmes"
+            target="_blank"
+            >Smoking Cessation Programmes (Singapore)</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.hpb.gov.sg/newsroom/article/smoking-control-programmes-for-adults"
+            target="_blank"
+            >Smoking Control Programmes for Adults (Singapore)</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="sec" id="creators">
+      <h2>The Creators</h2>
+      <p>
+        Breathtakers is a student-developed website created and developed by a
+        team of Information System students from SMU. The team consists of
+        Bradley, Shiva, Vincent and Deene. <br /><br />
+        This website was developed as a Web Application Development project in
+        AY2022-2023.
+      </p>
+    </div>
+
+    <script>
+      let stars = document.getElementById("stars");
+      let moon = document.getElementById("moon");
+      let mountains_behind = document.getElementById("mountains_behind");
+      let mountains_front = document.getElementById("mountains_front");
+      let text = document.getElementById("welcometext");
+      let btn = document.getElementById("btn");
+      let header = document.querySelector("header");
+
+      window.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        stars.style.left = value * 0.25 + "px";
+        moon.style.top = value * 0.65 + "px";
+        mountains_behind.style.top = value * 0.5 + "px";
+        mountains_front.style.top = value * 0 + "px";
+        text.style.marginRight = value * 1 + "px";
+        // text.style.marginTop = value * 1 + "px";
+        btn.style.marginTop = value * 1 + "px";
+        header.style.top = value * 0.5 + "px";
+      });
+    </script>
+  </body>
+</html>
