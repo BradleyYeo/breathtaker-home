@@ -33,6 +33,7 @@ header .logo {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin-top: 10px;
 }
 
 header ul {
@@ -178,7 +179,7 @@ section img#mountains_front {
     width: 100%;
     position: fixed;
     z-index: 1;
-    top: -5px;
+    top: -15px;
     left: 0;
     background-color: #261e32;
     box-shadow: 0 4px 4px -3px #232323;
@@ -216,7 +217,7 @@ section img#mountains_front {
 
 .line1, .line2, .line3 {
   margin-top:5px;
-  
+  top: 10px;
   background-color:#fff;
   width:25px;
   height:3px;
