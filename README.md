@@ -1,1 +1,2 @@
-# breathtaker-home
+# Application Setup
+double click `index.html`
