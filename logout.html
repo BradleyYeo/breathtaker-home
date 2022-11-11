@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Out</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap");
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(#2b1055, #7597de);
+        height: 100vh;
+        overflow: hidden;
+      }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background: white;
+        border-radius: 10px;
+      }
+
+      .center h1 {
+        text-align: center;
+        padding: 20px 0 20px 0;
+        border-bottom: 1px solid silver;
+      }
+
+      .areyousure {
+        margin: 30px 0;
+        text-align: center;
+        font-size: 1rem;
+        color: #666666;
+      }
+
+      input[type="submit"] {
+        width: 80%;
+        height: 50px;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        background: #2691d9;
+        border-radius: 25px;
+        font-size: 1.125rem;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        margin: auto;
+      }
+
+      input[type="submit"]:hover {
+        border-color: #2691d9;
+        transition: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Log Out</h1>
+      <div class="areyousure">Are you sure you would like to log out?</div>
+      <input type="submit" id="signmeout" value="Yes, log me out" />
+    </div>
+  </body>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut,
+    } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
+      authDomain: "freecode-56b4c.firebaseapp.com",
+      projectId: "freecode-56b4c",
+      storageBucket: "freecode-56b4c.appspot.com",
+      messagingSenderId: "8167992149",
+      appId: "1:8167992149:web:1a1b8361542208f168dddc",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    const signmeout = document.getElementById("signmeout");
+    signmeout.addEventListener("click", signMeOut);
+
+    function signMeOut() {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          location.href = "index.html";
+        })
+        .catch((error) => {
+          // An error happened.
+        });
+    }
+  </script>
+</html>

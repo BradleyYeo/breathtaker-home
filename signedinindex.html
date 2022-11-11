@@ -19,8 +19,8 @@
       <ul>
         <li><a href="#" class="active">Home</a></li>
         <li><a href="#creators">Creators</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="login.html">Log In</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="logout.html">Log Out</a></li>
         <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
       </ul>
     </header>
@@ -28,7 +28,7 @@
       <img src="images/stars.png" id="stars" />
       <img src="images/moon.png" id="moon" />
       <img src="images/mountains_behind.png" id="mountains_behind" />
-      <h2 id="welcometext">Breathtakers</h2>
+      <h2 id="welcometext"></h2>
       <a href="#sec" id="btn">About Us</a>
       <img src="images/mountains_front.png" id="mountains_front" />
     </section>
@@ -98,6 +98,41 @@
         // text.style.marginTop = value * 1 + "px";
         btn.style.marginTop = value * 1 + "px";
         header.style.top = value * 0.5 + "px";
+      });
+    </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
+        authDomain: "freecode-56b4c.firebaseapp.com",
+        projectId: "freecode-56b4c",
+        storageBucket: "freecode-56b4c.appspot.com",
+        messagingSenderId: "8167992149",
+        appId: "1:8167992149:web:1a1b8361542208f168dddc",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const user = auth.currentUser;
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          console.log(user);
+          var welcomename = user.displayName;
+          document.getElementById("welcometext").innerText =
+            `Hello` + ` ` + welcomename + `!`;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
       });
     </script>
   </body>

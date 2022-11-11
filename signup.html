@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log In</title>
+    <title>Sign Up</title>
     <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -12,9 +12,6 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
-    <section>
-      <!-- <img src="images/stars.png" id="stars" /> -->
-    </section>
     <style>
       @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap");
       body {
@@ -150,23 +147,26 @@
   </head>
   <body>
     <div class="center">
-      <div id="errormessage"></div>
-      <h1>Log In</h1>
+      <h1>Sign Up</h1>
       <form>
         <div class="txt_field">
-          <input type="text" id="loginemail" required />
+          <input type="text" id="name" required />
+          <label>Name</label>
+          <span></span>
+        </div>
+        <div class="txt_field">
+          <input type="text" id="signupemail" required />
           <label>Email</label>
           <span></span>
         </div>
         <div class="txt_field">
-          <input type="password" id="loginpassword" required />
+          <input type="password" id="signuppassword" required />
           <span></span>
           <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
-        <input type="submit" id="userlogin" value="Log In" />
+        <input type="submit" id="usersignup" value="Sign Up" />
         <div class="signup_link">
-          Not a member? <a href="signup.html">Sign Up Here</a>
+          Already a member? <a href="login.html">Log In Here</a>
         </div>
       </form>
       <div class="button-container">
@@ -179,6 +179,7 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
     import {
       getAuth,
+      updateProfile,
       onAuthStateChanged,
       setPersistence,
       inMemoryPersistence,
@@ -188,6 +189,7 @@
     import {
       signInWithPopup,
       signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
     } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
     import {
       getDatabase,
@@ -214,36 +216,39 @@
     const auth = getAuth(app);
 
     //get email
-    const userlogin = document.getElementById("userlogin");
-    function userlogsin() {
+    const usersignup = document.getElementById("usersignup");
+    function usersignsup() {
       event.preventDefault();
-      var email = document.getElementById("loginemail").value;
-      var password = document.getElementById("loginpassword").value;
-      signInWithEmailAndPassword(auth, email, password)
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("signupemail").value;
+      var password = document.getElementById("signuppassword").value;
+      createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          location.href = "signedinindex.html";
+          const user = userCredential.user;
+
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          })
+            .then(() => {
+              // Profile updated!
+              location.href = "signedinindex.html";
+            })
+            .catch((error) => {
+              // An error occurred
+              console.log("unable to update display name");
+            });
+
+          // user.displayName = name;
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
-
-          if (
-            errorMessage == `Firebase: Error (auth/user-not-found).` ||
-            errorMessage == `Firebase: Error (auth/invalid-email).`
-          ) {
-            document.getElementById(
-              "errormessage"
-            ).innerHTML = `<div class="alert alert-warning" role="alert">Invalid email entered. Please try again.</div>`;
-          } else {
-            document.getElementById(
-              "errormessage"
-            ).innerHTML = `<div class="alert alert-warning" role="alert">Wrong password entered. Please try again.</div>`;
-          }
         });
     }
 
     //event listener for button
-    userlogin.addEventListener("click", userlogsin);
+    usersignup.addEventListener("click", usersignsup);
   </script>
 </html>
