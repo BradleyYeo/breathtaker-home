@@ -16,13 +16,44 @@
   <body>
     <header>
       <a href="#" class="logo">Breathtakers</a>
-      <ul>
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#creators">Creators</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="login.html">Log In</a></li>
-        <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
-      </ul>
+      <nav>
+        <ul>
+          <li class="col-lg-2 d-none d-md-block">
+            <a href="#" class="active">Home</a>
+          </li>
+          <li class="col-lg-3 d-none d-md-block">
+            <a href="#creators">Creators</a>
+          </li>
+          <li class="col-lg-3 d-none d-md-block"><a href="#">Sign Up</a></li>
+          <li class="col-lg-2 d-none d-md-block"><a href="#">Log In</a></li>
+          <!-- <li><a href="newsfeedAPI_vue.html">Newsfeed</a></li>
+          <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
+        </ul>
+      </nav>
+      <div id="topNav" class="navigation d-md-none d-lg-none">
+        <span id="closebtn" onclick="navToggle()">
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
+        </span>
+        <div class="logo">
+          <img src="" />
+        </div>
+
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none">
+            <a href="#" class="active">Home</a>
+          </li>
+          <li class="d-md-none d-lg-none"><a href="#">Sign Up</a></li>
+          <li class="d-md-none d-lg-none"><a href="#">Log In</a></li>
+          <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
+          <li class="d-md-none d-lg-none">
+            <a href="https://freecode-56b4c.web.app/">Events</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="main"></div>
     </header>
     <section>
       <img src="images/stars.png" id="stars" />
@@ -100,5 +131,6 @@
         header.style.top = value * 0.5 + "px";
       });
     </script>
+    <script src="index.js"></script>
   </body>
 </html>
