@@ -115,13 +115,39 @@
     <header>
       <a href="#" class="logo">Breathtakers</a>
       <ul>
-        <li><a href="signedinindex.html">Home</a></li>
-        <li><a href="signedinindex.html#creators">Creators</a></li>
-        <li><a href="#" class="active">Dashboard</a></li>
-        <li><a href="logout.html">Log Out</a></li>
+        <li class="col-lg-2 d-none d-md-block"><a href="signedinindex.html">Home</a></li>
+        <li class="col-lg-3 d-none d-md-block"><a href="signedinindex.html#creators">Creators</a></li>
+        <li class="col-lg-3 d-none d-md-block"><a href="#" class="active">Dashboard</a></li>
+        <li class="col-lg-3 d-none d-md-block"><a href="logout.html">Log Out</a></li>
         <!-- <li><a href="#">Log In</a></li> -->
         <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
       </ul>
+    
+      <div id="topNav" class="navigation d-md-none d-lg-none">
+        <span id="closebtn" onclick="navToggle()">
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
+        </span>
+        <div class="logo2">
+          <img src="" />
+        </div>
+
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="#" class="active">Home</a></li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="#">Sign Up</a></li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="#">Log In</a></li>
+ 
+        </ul>
+      </div>
+
     </header>
     <section>
       <img src="images/stars.png" id="stars" />
@@ -153,5 +179,6 @@
         </div>
       </div>
     </section>
+    <script src="index.js"></script>
   </body>
 </html>
