@@ -51,7 +51,7 @@
       }
 
       .txt_field input {
-        width: 100px;
+        width: 300px;
         padding: 0 5px;
         height: 40px;
         font-size: 1rem;
@@ -147,6 +147,7 @@
   </head>
   <body>
     <div class="center">
+      <div id="errormessage"></div>
       <h1>Sign Up</h1>
       <form>
         <div class="txt_field">
@@ -245,6 +246,19 @@
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
+
+          if (
+            errorMessage == `Firebase: Error (auth/user-not-found).` ||
+            errorMessage == `Firebase: Error (auth/invalid-email).`
+          ) {
+            document.getElementById(
+              "errormessage"
+            ).innerHTML = `<div class="alert alert-warning" role="alert">Invalid email entered. Please try again.</div>`;
+          } else {
+            document.getElementById(
+              "errormessage"
+            ).innerHTML = `<div class="alert alert-warning" role="alert">Invalid password entered. Please try again.</div>`;
+          }
         });
     }
 

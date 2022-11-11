@@ -12,29 +12,144 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/32b9b26858.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      html,
+      body {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        place-items: center;
+      }
+
+      .herearesome {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        margin: auto;
+      }
+
+      .wrapper .button {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        /* float: left; */
+        margin: 0 5px;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-out;
+      }
+      .wrapper .button:hover {
+        width: 200px;
+      }
+      .wrapper .button .icon {
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        text-align: center;
+        border-radius: 50px;
+        box-sizing: border-box;
+        line-height: 60px;
+        transition: all 0.3s ease-out;
+      }
+      .wrapper .button:nth-child(1):hover .icon {
+        background: #4267b2;
+      }
+      .wrapper .button:nth-child(2):hover .icon {
+        background: #1da1f2;
+      }
+      .wrapper .button:nth-child(3):hover .icon {
+        background: #e1306c;
+      }
+      .wrapper .button:nth-child(4):hover .icon {
+        background: #333;
+      }
+      .wrapper .button:nth-child(5):hover .icon {
+        background: #ff0000;
+      }
+      .wrapper .button .icon i {
+        font-size: 25px;
+        line-height: 60px;
+        transition: all 0.3s ease-out;
+      }
+      .wrapper .button:hover .icon i {
+        color: #fff;
+      }
+      .wrapper .button span {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 60px;
+        margin-left: 10px;
+        transition: all 0.3s ease-out;
+      }
+      .wrapper .button:nth-child(1) span {
+        color: #4267b2;
+      }
+      .wrapper .button:nth-child(2) span {
+        color: #1da1f2;
+      }
+      .wrapper .button:nth-child(3) span {
+        color: #e1306c;
+      }
+      .wrapper .button:nth-child(4) span {
+        color: #333;
+      }
+      /* .wrapper .button:nth-child(5) span {
+        color: #ff0000;
+      } */
+    </style>
   </head>
   <body>
     <header>
       <a href="#" class="logo">Breathtakers</a>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="signedinindex.html">Home</a></li>
+        <li><a href="signedinindex.html#creators">Creators</a></li>
         <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="logout.html">Log Out</a></li>
         <!-- <li><a href="#">Log In</a></li> -->
-        <li><a href="index.html/#creators">Creators</a></li>
-        <li><a href="https://freecode-56b4c.web.app/">Events</a></li>
+        <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
       </ul>
     </header>
     <section>
       <img src="images/stars.png" id="stars" />
-      <div class="card" style="width: 18rem">
-        <!-- <img class="card-img-top" src="..." alt="No image here" /> -->
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <!-- <h2 class="herearesome">hello</h2> -->
+      <div class="wrapper">
+        <div class="button">
+          <div class="icon">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <span><a href="https://freecode-56b4c.web.app/">Events</a></span>
+        </div>
+        <div class="button">
+          <div class="icon">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
+          <span>Mini-Games</span>
+        </div>
+        <div class="button">
+          <div class="icon">
+            <i class="fa-regular fa-newspaper"></i>
+          </div>
+          <span><a href="newsfeedAPI_vue.html">Newsfeed</a></span>
+        </div>
+        <div class="button">
+          <div class="icon">
+            <i class="fa-regular fa-calendar-days"></i>
+          </div>
+          <span>Track Days</span>
         </div>
       </div>
     </section>
