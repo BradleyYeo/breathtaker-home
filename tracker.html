@@ -100,8 +100,9 @@
               <hr>
               <blockquote class="blockquote">
                 <p class="pt-3 text-secondary"><em>{{quote}}</em></p>
-                <footer class="blockquote-footer">{{author}} <cite title="Source Title">Source Title</cite></footer>
+                <footer class="blockquote-footer">{{author}}</footer>
               </blockquote>
+              
               
               
             </div>
@@ -228,7 +229,7 @@
                 .then((res) => res.json())
                 .then((data) => {
                   this.quote = `"${data.content}"`;
-                  this.author = `"${data.author}"`;
+                  this.author = `${data.author}`;
                   // author.innerHTML = `- ${data.author}`;
                 });
               console.log(this.quote)
