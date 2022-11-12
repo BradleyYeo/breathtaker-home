@@ -174,7 +174,7 @@
           },
 
           motivate(){
-            //motivational quote
+            //Rnadom Quote API
             fetch("http://api.quotable.io/random")
             .then((res) => res.json())
             .then((data) => {
@@ -209,13 +209,8 @@
             this.image = this.awards[2]
           }
 
-          //Quote API
-          fetch("http://api.quotable.io/random")
-            .then((res) => res.json())
-            .then((data) => {
-              this.quote = `"${data.content}"`;
-              this.author = `${data.author}`;
-            });
+          //Display new random quote
+          this.motivate();
 
 
         },
