@@ -324,7 +324,7 @@
 
       // collection ref
 
-    function useraddaday() {
+      function useraddaday() {
         const colRef = collection(db, "dayscount");
 
         onSnapshot(colRef, (snapshot) => {
@@ -345,7 +345,6 @@
                   await updateDoc(newRef, {
                     daycount: increment(1),
                   });
-
                 }
               }
             } else {
