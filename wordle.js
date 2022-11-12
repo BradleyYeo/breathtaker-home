@@ -1,7 +1,10 @@
 const buttonElements = document.querySelectorAll('button');
 let row = 1;
 let letter = 1;
-const wordForTheDay = 'Shout';
+const dictionary = ['strap', 'plane', 'crane', 'plate', 'about', 'above', 'admit', 'audit', 'bandit', 'being', 'beach', 'blame', 'board', 'block', 'booth', 'brain', 'claim', 'clean', 'close', 'drain', 'delay', 
+'doing', 'debut', 'exist', 'drill', 'error', 'every', 'faith', 'entry', 'fault', 'dream', 'final', 'force', 'grand', 'grass', 'group', 'magic', 'meant', 'metal', 'moral', 'offer', 'party', 'phone', 'pitch', 'royal', 'shelf', 'sharp', 'round', 'rival',
+'sheep', 'steel', 'story', 'thick', 'today', 'total', 'value', 'unity', 'waste', 'water', 'worse', 'youth', 'yield', 'youth']
+const wordForTheDay = dictionary[Math.floor(Math.random() * dictionary.length)];
 const wordElements = document.querySelectorAll('.word-row');
 let gameOver = false;
 let guessedCorrectly = false;
@@ -11,6 +14,10 @@ buttonElements.forEach((element) => {
   keypress(element.attributes["data-key"].value)
 });
 });
+
+
+
+
 
 function populateWord(key) {
   if (letter < 6) {
@@ -60,7 +67,7 @@ function enterWord() {
 }
 
 function deleteLetter() {
-  const letterElements = wordElements[row - 1].querySelectorAll('word');
+  const letterElements = wordElements[row - 1].querySelectorAll('.word');
 
   for (let index = letterElements.length - 1; index >= 0; index--) {
     const element = letterElements[index];
