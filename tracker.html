@@ -323,7 +323,7 @@
 
       // collection ref
 
-      function useraddaday() {
+    function useraddaday() {
         const colRef = collection(db, "dayscount");
 
         onSnapshot(colRef, (snapshot) => {
@@ -332,27 +332,20 @@
             daycounter.push({ ...doc.data(), id: doc.id });
           });
           console.log(daycounter);
-          onAuthStateChanged(auth, (user) => {
+          onAuthStateChanged(auth, async (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
               const nowuid = user.uid;
               for (let i = 0; i < daycounter.length; i++) {
-                // console.log(daycounts[i]);
                 if (nowuid == daycounter[i].uid) {
                   let docid = daycounter[i].id;
-                  var newRef = doc(db, "dayscount", docid);
-                  // for (let j = 0; j < 1; j++) {
-                  //   updateDoc(newRef, {
-                  //     daycount: increment(1),
-                  //   });
-                  // }
-                  updateDoc(newRef, {
+                  let newRef = doc(db, "dayscount", docid);
+                  await updateDoc(newRef, {
                     daycount: increment(1),
                   });
                 }
               }
-              // ...
             } else {
               // User is signed out
               // ...
