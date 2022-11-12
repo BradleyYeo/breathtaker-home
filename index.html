@@ -12,14 +12,18 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
+          
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <header>
       <a href="#" class="logo">Breathtakers</a>
       <nav>
         <ul>
-          <li class="col-lg-2 d-none d-md-block">
-            <a href="#" class="active">Home</a>
+          <li class="col-lg-3 d-none d-md-block">
+            <a href="index.html" class="active">Home</a>
           </li>
           <li class="col-lg-3 d-none d-md-block">
             <a href="#creators">Creators</a>
@@ -27,7 +31,7 @@
           <li class="col-lg-3 d-none d-md-block">
             <a href="signup.html">Sign Up</a>
           </li>
-          <li class="col-lg-2 d-none d-md-block">
+          <li class="col-lg-3 d-none d-md-block">
             <a href="login.html">Log In</a>
           </li>
           <!-- <li><a href="newsfeedAPI_vue.html">Newsfeed</a></li>
@@ -40,24 +44,44 @@
           <span class="line2"></span>
           <span class="line3"></span>
         </span>
-        <div class="logo">
+        <div class="logo2">
           <img src="" />
         </div>
+<div class="icons">
+        <a href="index.html" class="icon1">
+          <i class="material-icons">home</i>
+                </a>
 
+        <a href="#creators" class="icon2">
+          <i class="material-icons">people</i>
+                </a>
+
+        <a href="signup.html" class="icon3">
+          <i class="material-icons">history_edu</i>
+                </a>
+
+        <a href="login.html" class="icon4">
+          <i class="material-icons">login</i>
+                </a>
+              
+              </div>
+              <div class="menulistadjust">
         <ul class="menulist">
-          <li class="d-md-none d-lg-none">
-            <a href="#" class="active">Home</a>
-          </li>
-          <li class="d-md-none d-lg-none"><a href="#">Sign Up</a></li>
-          <li class="d-md-none d-lg-none"><a href="#">Log In</a></li>
+          <li class="d-md-none d-lg-none"><a href="index.html" class="active">Home</a></li>
+        </ul>
+        <ul class="menulist">
           <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
-          <li class="d-md-none d-lg-none">
-            <a href="https://freecode-56b4c.web.app/">Events</a>
-          </li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="signup.html">Sign Up</a></li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="login.html">Log In</a></li>
         </ul>
       </div>
+      </div>
 
-      <div id="main"></div>
+
     </header>
     <section>
       <img src="images/stars.png" id="stars" />
@@ -95,18 +119,25 @@
       <br />
       <ul>
         <li>
-          <a
-            href="https://hpb.gov.sg/workplace/workplace-programmes/smoking-cessation-programmes"
-            target="_blank"
-            >Smoking Cessation Programmes (Singapore)</a
-          >
+
+          <button href="https://hpb.gov.sg/workplace/workplace-programmes/smoking-cessation-programmes"
+          type="button" 
+          target="_blank"
+          class="btn btn-outline-light" style="border-radius: 20px;">
+            Smoking Cessation Programmes
+          </button>
+
         </li>
         <li>
-          <a
-            href="https://www.hpb.gov.sg/newsroom/article/smoking-control-programmes-for-adults"
-            target="_blank"
-            >Smoking Control Programmes for Adults (Singapore)</a
-          >
+
+          <button href="https://www.hpb.gov.sg/newsroom/article/smoking-control-programmes-for-adults"
+          type="button" 
+          target="_blank"
+          class="btn btn-outline-light" style="border-radius: 20px;">
+          Smoking Control Programmes for Adults
+          </button>
+
+          
         </li>
       </ul>
     </div>
@@ -146,3 +177,4 @@
     <script src="index.js"></script>
   </body>
 </html>
+
