@@ -201,6 +201,12 @@
       set,
       update,
     } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js";
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      addDoc,
+    } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
@@ -215,32 +221,65 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     const auth = getAuth(app);
+    const db = getFirestore(app);
 
     //get email
     const usersignup = document.getElementById("usersignup");
     function usersignsup() {
       event.preventDefault();
+      var createdaccount = false;
       var name = document.getElementById("name").value;
       var email = document.getElementById("signupemail").value;
       var password = document.getElementById("signuppassword").value;
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
+          const uid = user.uid;
 
           updateProfile(auth.currentUser, {
             displayName: name,
           })
             .then(() => {
               // Profile updated!
-              location.href = "signedinindex.html";
+              // initialize tracking
+              // go back to signedinindex
+              // location.href = "signedinindex.html";
+
+              const colRef = collection(db, "dayscount");
+              getDocs(colRef)
+                .then((snapshot) => {
+                  let daycounts = [];
+                  snapshot.docs.forEach((doc) => {
+                    daycounts.push({ ...doc.data(), id: doc.id });
+                  });
+                  console.log(daycounts);
+                })
+                .catch((err) => {
+                  console.log(err.message);
+                });
+
+              // adding days
+              function userinitialize() {
+                event.preventDefault();
+
+                addDoc(colRef, {
+                  uid: uid,
+                  daycount: 0,
+                });
+              }
+
+              userinitialize();
+              // location.href = "signedinindex.html";
+              setTimeout(function () {
+                window.location.href = "signedinindex.html";
+              }, 3000);
             })
             .catch((error) => {
               // An error occurred
               console.log("unable to update display name");
             });
 
-          // user.displayName = name;
-          // console.log(user);
+          // location.href = "signedinindex.html";
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -254,12 +293,22 @@
             document.getElementById(
               "errormessage"
             ).innerHTML = `<div class="alert alert-warning" role="alert">Invalid email entered. Please try again.</div>`;
+          } else if (
+            errorMessage == `Firebase: Error (auth/email-already-in-use).`
+          ) {
+            document.getElementById(
+              "errormessage"
+            ).innerHTML = `<div class="alert alert-warning" role="alert">Email is already in use. Please try again.</div>`;
           } else {
             document.getElementById(
               "errormessage"
             ).innerHTML = `<div class="alert alert-warning" role="alert">Invalid password entered. Please try again.</div>`;
           }
         });
+      // addDoc(colRef, {
+      //   uid: uid,
+      //   daycount: 0,
+      // });
     }
 
     //event listener for button
