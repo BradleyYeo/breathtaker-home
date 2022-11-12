@@ -47,7 +47,6 @@ header ul {
 header ul li {
   list-style: none;
   margin-left: 15px;
-  text-shadow: 1px 1px 1px #000;
 }
 
 header ul li a {
