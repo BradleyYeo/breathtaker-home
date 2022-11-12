@@ -131,7 +131,7 @@
                   progress: 0,
                   clickTime: new Date('2022-11-11T00:00:00'),
                   ready:true,
-                  awards: ['img/bronze.png','img/silver.png','img/gold.png'],
+                  awards: ['img/bronze.png','img/silver.png','img/gold.png','img/trophy.png'],
                   image:'',
                   quotes:[],
                   quote:'',
@@ -166,8 +166,10 @@
                   this.image = this.awards[0]
                 }else if(this.progress<75){
                   this.image = this.awards[1]
-                }else{
+                }else if(this.progress<100){
                   this.image = this.awards[2]
+                }else{
+                  this.image = this.awards[3]
                 }
               },
 
