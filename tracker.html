@@ -69,9 +69,17 @@
             <div class="py-5 mx-5">
               <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
               <h1 class="display-5 fw-bold">Day {{days}}</h1>
-              <p class="col fs-4">Login daily to track your non-smoking days. Join the challenge to reach 365 days! {{quote}}</p>
+              <p class="col fs-4">Login daily to track your non-smoking days. Join the challenge to reach 365 days!</p>
               <button v-if="ready" @click="addCount" class="btn btn-primary btn-lg mx-auto" type="button">Another day</button>
               <button v-else @click="addCount" class="btn btn-primary btn-lg" type="button" disabled>Check in tomorrow</button>
+              <!-- <p class="mt-3"><em>{{quote}}</em></p> -->
+              <hr>
+              <blockquote class="blockquote">
+                <p class="pt-3 text-secondary"><em>{{quote}}</em></p>
+                <footer class="blockquote-footer">{{author}} <cite title="Source Title">Source Title</cite></footer>
+              </blockquote>
+              
+              
             </div>
           </div>
 
@@ -83,6 +91,7 @@
               </div>
             </div>
           </div>
+          
 
         </div>
 
@@ -102,6 +111,7 @@
                   image:'',
                   quotes:[],
                   quote:'',
+                  author:'',
               }
             },
             methods:{
@@ -185,7 +195,17 @@
               // })
               // .then(function(data) {
               //   this.quotes = data;
-              // });     
+              // });   
+              
+              
+              fetch("http://api.quotable.io/random")
+                .then((res) => res.json())
+                .then((data) => {
+                  this.quote = `"${data.content}"`;
+                  this.author = `"${data.author}"`;
+                  // author.innerHTML = `- ${data.author}`;
+                });
+              console.log(this.quote)
    
             },
         }).mount('#app')
