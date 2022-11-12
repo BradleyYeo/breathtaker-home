@@ -5,7 +5,7 @@ var close = document.getElementById("closebtn");
 
 //default to measure if/else from
 nav.style.height = "50px";
-main.style.marginTop = "50px";
+// main.style.marginTop = "50px";
 for (i = 0; i < menu.length; i++){menu[i].style.marginTop="100px";};
 
 close.addEventListener("click", function(){
