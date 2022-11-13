@@ -111,7 +111,7 @@
           <div class="col-md-8 bg-light">
             <div class="py-5 mx-5">
               <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
-              <h1 class="display-5 fw-bold">Day {{days}}</h1>
+              <h1 class="display-5 fw-bold" id="showdays"></h1>
               <p class="col fs-4">
                 Login daily to track your non-smoking days. Join the challenge
                 to reach 365 days!
@@ -342,9 +342,15 @@
                 if (nowuid == daycounter[i].uid) {
                   let docid = daycounter[i].id;
                   let newRef = doc(db, "dayscount", docid);
-                  await updateDoc(newRef, {
-                    daycount: increment(1),
-                  });
+                  for (let j = 0; j < 1; j++) {
+                    await updateDoc(newRef, {
+                      daycount: increment(1),
+                    });
+                  }
+                  // let currentcount = daycounter[i].daycount;
+                  // document.getElementById(
+                  //   showdays
+                  // ).innerHTML = `<h1 class="display-5 fw-bold">Day ${currentcount}</h1>`;
                 }
               }
             } else {
