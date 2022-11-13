@@ -103,7 +103,9 @@
                     <div class="col-md-8 bg-light">
                         <div class="py-5 mx-5">
                             <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
-                            <h1 class="display-5 fw-bold" id="daysWithoutSmoke"></h1>
+                            <h1 class="display-5 fw-bold" id="daysWithoutSmoke">
+                                
+                            </h1>
                             <p class="col fs-4">
                                 Login daily to track your non-smoking days. Join the challenge
                                 to reach 365 days!
@@ -356,101 +358,6 @@
             }
         </script>
     </body>
-
-        // old
-        // const colRef = collection(db, "dayscount");
-
-        // onSnapshot(colRef, (snapshot) => {
-        //   let daycounter = [];
-        //   snapshot.docs.forEach((doc) => {
-        //     daycounter.push({ ...doc.data(), id: doc.id });
-        //   });
-        //   onAuthStateChanged(auth, (user) => {
-        //     if (user) {
-        //       // User is signed in, see docs for a list of available properties
-        //       // https://firebase.google.com/docs/reference/js/firebase.User
-
-        //       // increment creates an infinite loop :-(
-        //       const nowuid = user.uid;
-        //       for (let i = 0; i < daycounter.length; i++) {
-        //         if (nowuid == daycounter[i].uid) {
-        //           let newRef = doc(db, "dayscount", daycounter[i].id);
-        //           updateDoc(newRef, {
-        //             daycount: increment(1),
-        //           });
-        //           break;
-        //         }
-        //       }
-        //     } else {
-        //       // User is signed out
-        //       // ...
-        //     }
-        //   });
-        // });
-      }
-
-      const useraddday = document.getElementById("addday");
-      useraddday.addEventListener("click", useraddaday);
-      const daycount = document.getElementById("daycount");
-
-      async function userresetdaycount() {
-        // trying
-
-        console.log(nowuid);
-
-        const q = query(
-          collection(db, "dayscount"),
-          where("uid", "==", nowuid)
-        );
-
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((docSnapshot) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log(docSnapshot.id, " => ", docSnapshot.data());
-          const newResetRef = doc(db, "dayscount", docSnapshot.id);
-          updateDoc(newResetRef, {
-            daycount: 0,
-          });
-        });
-      }
-
-      const userresetdays = document.getElementById("resetdays");
-      userresetdays.addEventListener("click", userresetdaycount);
-
-      // window.onload = function () {
-      //   const dbRef = ref(db);
-      //   get(child(dbRef, "daycount")).then((snapshot) => {
-      //     countVariable = Number(snapshot.val());
-      //     daycount.innerText = "Day " + countVariable;
-      //   });
-      // };
-
-      // function IncCounter(){
-      //   const dbRef = ref(db);
-
-      //   get(child(dbRef, 'daycount')).then((snapshot)=> {
-      //     countVariable = Number(snapshot.val());
-
-      //     if(this.id == 'addday') countVariable++;
-
-      //     update(ref(db,''))
-      //   })
-      // }
-
-      // .catch((err) => {
-      //   console.log(err.message);
-      // });
-
-      // adding days
-      // const useraddday = document.getElementById("addday");
-      // function useraddaday() {
-      //   event.preventDefault();
-
-      //   addDoc(colRef, {
-      //     uid: ,
-      //     daycount: ,
-      //   })
-      // }
     </script>
   </body>
 </html>
