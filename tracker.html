@@ -141,6 +141,15 @@
                 <p class="pt-3 text-secondary"><em>{{quote}}</em></p>
                 <footer class="blockquote-footer">{{author}}</footer>
               </blockquote>
+              <hr />
+              <button
+                class="btn btn-warning btn-sm mx-auto"
+                type="button"
+                id="resetdays"
+                @click="resetProgress"
+              >
+                Reset Days
+              </button>
             </div>
           </div>
 
@@ -200,6 +209,13 @@
             this.progress = (this.days / 365) * 100;
             this.checkImg();
             this.motivate();
+          },
+
+          resetProgress() {
+            this.days = 0;
+            this.progress = 0;
+            this.checkImg();
+            this.motivate;
           },
 
           checkImg() {
@@ -391,11 +407,33 @@
         // });
       }
 
-      // increment
-
       const useraddday = document.getElementById("addday");
       useraddday.addEventListener("click", useraddaday);
       const daycount = document.getElementById("daycount");
+
+      async function userresetdaycount() {
+        // trying
+
+        console.log(nowuid);
+
+        const q = query(
+          collection(db, "dayscount"),
+          where("uid", "==", nowuid)
+        );
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((docSnapshot) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(docSnapshot.id, " => ", docSnapshot.data());
+          const newResetRef = doc(db, "dayscount", docSnapshot.id);
+          updateDoc(newResetRef, {
+            daycount: 0,
+          });
+        });
+      }
+
+      const userresetdays = document.getElementById("resetdays");
+      userresetdays.addEventListener("click", userresetdaycount);
 
       // window.onload = function () {
       //   const dbRef = ref(db);
