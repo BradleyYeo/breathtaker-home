@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Breathtakes: Newsfeed</title>
+    <title>Breathtakers: Newsfeed</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,21 +19,36 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <header>
     <a href="#" class="logo">Breathtakers</a>
     <ul>
-      <li class="col-lg-3 d-none d-md-block"><a href="signedinindex.html">Home</a></li>
-        <li class="col-lg-3 d-none d-md-block"><a href="#creators">Creators</a></li>
-        <li class="col-lg-3 d-none d-md-block"><a href="dashboard.html" class="active">Dashboard</a></li>
-        <li class="col-lg-3 d-none d-md-block"><a href="logout.html">Log Out</a></li>
-       </ul>
-
+      <li class="col-lg-3 d-none d-md-block">
+        <a href="signedinindex.html">Home</a>
+      </li>
+      <li class="col-lg-3 d-none d-md-block">
+        <a href="#creators">Creators</a>
+      </li>
+      <li class="col-lg-3 d-none d-md-block">
+        <a href="dashboard.html" class="active">Dashboard</a>
+      </li>
+      <li class="col-lg-3 d-none d-md-block">
+        <a href="logout.html">Log Out</a>
+      </li>
+    </ul>
 
     <div id="topNav" class="navigation d-md-none d-lg-none">
       <span id="closebtn" onclick="navToggle()">
@@ -47,46 +62,46 @@
       <div class="icons">
         <a href="index.html" class="icon1">
           <i class="material-icons">home</i>
-                </a>
+        </a>
 
         <a href="#creators" class="icon2">
           <i class="material-icons">people</i>
-                </a>
+        </a>
 
         <a href="dashboard.html" class="icon3">
           <i class="material-icons">dashboard</i>
-                </a>
+        </a>
 
         <a href="logout.html" class="icon4">
           <i class="material-icons">logout</i>
-                </a>
-              
-              </div>
-              <div class="menulistadjust">
-      <ul class="menulist">
-        <li class="d-md-none d-lg-none"><a href="signedinindex.html">Home</a></li>
-      </ul>
-      <ul class="menulist">
-        <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
-      </ul>
-      <ul class="menulist">
-        <li class="d-md-none d-lg-none"><a href="dashboard.html" class="active">Dashboard</a></li>
-      </ul>
-      <ul class="menulist">
-        <li class="d-md-none d-lg-none"><a href="logout.html">Log Out</a></li>
-
-      </ul>
+        </a>
+      </div>
+      <div class="menulistadjust">
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none">
+            <a href="signedinindex.html">Home</a>
+          </li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none">
+            <a href="dashboard.html" class="active">Dashboard</a>
+          </li>
+        </ul>
+        <ul class="menulist">
+          <li class="d-md-none d-lg-none"><a href="logout.html">Log Out</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-
-
   </header>
 
   <body>
     <div id="app">
       <div
         id="news"
-        class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-5 mx-3" 
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-5 mx-3"
       >
         <div v-for="post in posts" class="col mt-5">
           <div class="card">
@@ -96,13 +111,14 @@
               class="card-img-top"
             />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">
-                {{post.headline.main}}
-              </h5>
+              <h5 class="card-title">{{post.headline.main}}</h5>
               <p class="card-text overflow-auto" style="height: 100px">
                 {{post.abstract}}
               </p>
-              <a :href="post.web_url" class="btn btn-primary mt-auto" target="_blank"
+              <a
+                :href="post.web_url"
+                class="btn btn-primary mt-auto"
+                target="_blank"
                 >Read More</a
               >
             </div>
