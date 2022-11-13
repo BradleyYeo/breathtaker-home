@@ -7,3 +7,19 @@ Check out our live application [here](https://breathtaker-home.vercel.app/)
 email: turnip@gmail.com
 password: turnip123
 
+# References/Credits
+Firebase Firestore: https://firebase.google.com/docs/firestore/manage-data/add-data 
+
+Animated login/signup page: https://www.youtube.com/watch?v=eeHqZeJ9Vqc&ab_channel=CodingNepal 
+
+Dashboard icons: https://www.youtube.com/watch?v=yU3giDe-N6c&ab_channel=CodingNepal 
+
+Sidebar: https://medium.com/geekculture/how-to-create-a-responsive-navbar-with-hamburger-menu-da2366122d69 
+
+Wordle: https://youtu.be/eYiZa9bUTGs 
+
+Quotable.io API:
+https://github.com/lukePeavey/quotable
+
+NYT Article Search API:
+https://developer.nytimes.com/docs/articlesearch-product/1/overview 
