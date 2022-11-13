@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Events</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <header>
+            <a href="#" class="logo">Breathtakers</a>
+            <ul>
+                <li class="col-lg-3 d-none d-md-block">
+                    <a href="https://breathtaker-home.vercel.app/signedinindex.html">Home</a>
+                </li>
+                <li class="col-lg-3 d-none d-md-block">
+                    <a href="https://breathtaker-home.vercel.app/signedinindex.html#creators">Creators</a>
+                </li>
+                <li class="col-lg-3 d-none d-md-block">
+                    <a href="https://breathtaker-home.vercel.app/dashboard.html" class="active">Dashboard</a>
+                </li>
+                <li class="col-lg-3 d-none d-md-block">
+                    <a href="https://breathtaker-home.vercel.app/logout.html">Log Out</a>
+                </li>
+            </ul>
+            <div id="topNav" class="navigation d-md-none d-lg-none">
+                <span id="closebtn" onclick="navToggle()">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </span>
+                <div class="logo2">
+                    <img src="" />
+                </div>
+                <div class="icons">
+                    <a href="https://breathtaker-home.vercel.app/signedinindex.html" class="icon1">
+                        <i class="material-icons">home</i>
+                    </a>
+
+                    <a href="https://breathtaker-home.vercel.app/signedinindex.html#creators" class="icon2">
+                        <i class="material-icons">people</i>
+                    </a>
+
+                    <a href="https://breathtaker-home.vercel.app/dashboard.html" class="icon3">
+                        <i class="material-icons">dashboard</i>
+                    </a>
+
+                    <a href="https://breathtaker-home.vercel.app/logout.html" class="icon4">
+                        <i class="material-icons">logout</i>
+                    </a>
+
+                </div>
+                <div class="menulistadjust">
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a
+                                href="https://breathtaker-home.vercel.app/signedinindex.html">Home</a>
+                        </li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a
+                                href="https://breathtaker-home.vercel.app/signedinindex.html#creators">Creators</a>
+                        </li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="https://breathtaker-home.vercel.app/dashboard.html"
+                                class="active">Dashboard</a></li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="https://breathtaker-home.vercel.app/logout.html">Log
+                                Out</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div id="month" style="padding-top: 80px"></div>
+
+        <div>
+            <div id="calendar" class="col-lg-4 col-md-6 col-sm-12"></div>
+        </div>
+
+        <div id="events" class="lg-4 md-6 sm-12">
+
+            <div id="eventsCount" class="mediumcard plsmoveleft d-md-none d-lg-none"></div>
+
+
+            <div id="eventsCount" class="largecard plsmoveleft d-none d-md-block"></div>
+
+        </div>
+
+
+        <h2 class="animate__animated animate__fadeInDown col-lg-4 col-md-6 col-sm-12" id="quote">
+            9 in 10 people in Singapore do not smoke. Let's be one of them.
+        </h2>
+        </div>
+
+
+    </body>
+    <script src="index.js"></script>
+    <script>
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+        import {
+            getFirestore,
+            collection,
+            getDocs,
+            addDoc,
+            query,
+            Timestamp,
+            orderBy,
+            getCountFromServer,
+        } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
+            authDomain: "freecode-56b4c.firebaseapp.com",
+            projectId: "freecode-56b4c",
+            storageBucket: "freecode-56b4c.appspot.com",
+            messagingSenderId: "8167992149",
+            appId: "1:8167992149:web:1a1b8361542208f168dddc",
+        };
+
+        function getCurrentMonth() {
+            let month = new Date().getMonth();
+            let monthsArray = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+            let currentMonth = monthsArray[month];
+            document.getElementById("month").innerHTML =
+                "<h1 style='color:yellow'>" + currentMonth + "<h1>";
+            console.log(currentMonth);
+        }
+
+        function createCalendar(calendar, year, month) {
+            let d = new Date(year, month);
+            let table =
+                '<table style="background-color:#f2f2f2"><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr>';
+
+            for (let i = 0; i < getDay(d); i++) {
+                table += "<td></td>";
+            }
+
+            const today = new Date();
+            while (d.getMonth() == month) {
+                if (today.getDate() === d.getDate()) {
+                    table +=
+                        '<td id= "today" style="background-color:#2b1055">' +
+                        d.getDate() +
+                        "</td>";
+                } else {
+                    table += "<td>" + d.getDate() + "</td>";
+                }
+
+                if (getDay(d) % 7 == 6) {
+                    table += "</tr><tr>";
+                }
+
+                d.setDate(d.getDate() + 1);
+            }
+
+            if (getDay(d) != 0) {
+                for (let i = getDay(d); i < 7; i++) {
+                    table += "<td></td>";
+                }
+            }
+
+            table += "</tr></table>";
+
+            calendar.innerHTML = table;
+        }
+
+        function getDay(date) {
+            let day = date.getDay();
+            if (day == 0) day = 7;
+            return day - 1;
+        }
+
+        let currentYear = new Date().getFullYear();
+        let currentMonth = new Date().getMonth();
+
+        getCurrentMonth();
+        createCalendar(calendar, currentYear, currentMonth);
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const events = collection(db, "events");
+
+        async function createEvent() {
+            const newDoc = await addDoc(events, {
+                title: "BBQ Dinner",
+                description:
+                    "Meet new friends (or hang out with old ones) on a fun night out with BBQ chicken and steak! Individuals and groups are both welcome.",
+                date: Timestamp.fromDate(new Date("November 19, 2022 19:30:00")),
+                category: "food",
+            });
+        }
+
+        async function countEvents() {
+            const snapshot = await getCountFromServer(events);
+            document.getElementById("eventsCount").innerHTML = `<h2>${snapshot.data().count
+                } Upcoming Events</h2>`;
+            console.log(snapshot.data().count);
+        }
+
+        async function queryDoc() {
+            const eventQuery = query(events, orderBy("date", "asc"));
+            const querySnapshot = await getDocs(eventQuery);
+            let cardOutput =
+                "<div class='card border-dark mb-3 col-lg-4 col-md-6 col-sm-10' style='width: 30rem;''>";
+
+            const options = {
+                weekday: "short",
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            };
+
+            querySnapshot.docs.forEach(function (e) {
+                cardOutput += `<div class='card-body'>
+      <h3 class='card-title'>${e.data().title}</h3>
+     <h5 class='card-subtitle' style='color:#877457'>${e
+                        .data()
+                        .date.toDate()
+                        .toLocaleDateString("en-US", options)}</h5><br><p class='card-text'>${e.data().description
+                    }</p></div></div><div class='card border-dark mb-3 col-lg-4 col-md-6 col-sm-10' style='width: 30rem;''>`;
+            });
+            document.getElementById("events").innerHTML += cardOutput;
+        }
+
+        countEvents();
+        queryDoc();
+
+    </script>
+</html>
