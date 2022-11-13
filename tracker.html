@@ -34,6 +34,7 @@
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
+
   <body>
     <header>
       <a href="index.html" class="logo">Breathtakers</a>
@@ -111,7 +112,7 @@
           <div class="col-md-8 bg-light">
             <div class="py-5 mx-5">
               <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
-              <h1 class="display-5 fw-bold" id="showdays"></h1>
+              <h1 class="display-5 fw-bold">Day {{days}}</h1>
               <p class="col fs-4">
                 Login daily to track your non-smoking days. Join the challenge
                 to reach 365 days!
@@ -332,25 +333,19 @@
           snapshot.docs.forEach((doc) => {
             daycounter.push({ ...doc.data(), id: doc.id });
           });
-          console.log(daycounter);
-          onAuthStateChanged(auth, async (user) => {
+          onAuthStateChanged(auth, (user) => {
             if (user) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/firebase.User
               const nowuid = user.uid;
+              // console.log(daycounter);
               for (let i = 0; i < daycounter.length; i++) {
                 if (nowuid == daycounter[i].uid) {
-                  let docid = daycounter[i].id;
                   let newRef = doc(db, "dayscount", docid);
-                  for (let j = 0; j < 1; j++) {
-                    await updateDoc(newRef, {
-                      daycount: increment(1),
-                    });
-                  }
-                  // let currentcount = daycounter[i].daycount;
-                  // document.getElementById(
-                  //   showdays
-                  // ).innerHTML = `<h1 class="display-5 fw-bold">Day ${currentcount}</h1>`;
+                  updateDoc(newRef, {
+                    daycount: increment(1),
+                  });
+                  break;
                 }
               }
             } else {
