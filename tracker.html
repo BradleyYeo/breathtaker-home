@@ -1,193 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="generator" content="Hugo 0.104.2" />
+    <title>Tracker</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="" />
-        <meta name="generator" content="Hugo 0.104.2" />
-        <title>Tracker</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Bootstrap CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
-        <!-- Bootstrap CSS-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-            crossorigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Vue3 -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-        <!-- Vue3 -->
-        <script src="https://unpkg.com/vue@next"></script>
-        <!-- Axios -->
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo">Breathtakers</a>
+      <ul>
+        <li class="col-lg-3 d-none d-md-block">
+          <a href="signedinindex.html">Home</a>
+        </li>
+        <li class="col-lg-3 d-none d-md-block">
+          <a href="signedinindex.html#creators">Creators</a>
+        </li>
+        <li class="col-lg-3 d-none d-md-block">
+          <a href="dashboard.html" class="active">Dashboard</a>
+        </li>
+        <li class="col-lg-3 d-none d-md-block">
+          <a href="logout.html">Log Out</a>
+        </li>
+        <!-- <li><a href="#">Log In</a></li> -->
+        <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
+      </ul>
 
-    <body>
-        <header>
-            <a href="index.html" class="logo">Breathtakers</a>
-            <ul>
-                <li class="col-lg-3 d-none d-md-block">
-                    <a href="signedinindex.html">Home</a>
-                </li>
-                <li class="col-lg-3 d-none d-md-block">
-                    <a href="signedinindex.html#creators">Creators</a>
-                </li>
-                <li class="col-lg-3 d-none d-md-block">
-                    <a href="dashboard.html" class="active">Dashboard</a>
-                </li>
-                <li class="col-lg-3 d-none d-md-block">
-                    <a href="logout.html">Log Out</a>
-                </li>
-                <!-- <li><a href="#">Log In</a></li> -->
-                <!-- <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
-            </ul>
+      <div id="topNav" class="navigation d-md-none d-lg-none">
+        <span id="closebtn" onclick="navToggle()">
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
+        </span>
+        <div class="logo2">
+          <img src="" />
+        </div>
+        <div class="icons">
+          <a href="signedinindex.html" class="icon1">
+            <i class="material-icons">home</i>
+          </a>
 
-            <div id="topNav" class="navigation d-md-none d-lg-none">
-                <span id="closebtn" onclick="navToggle()">
-                    <span class="line1"></span>
-                    <span class="line2"></span>
-                    <span class="line3"></span>
-                </span>
-                <div class="logo2">
-                    <img src="" />
-                </div>
-                <div class="icons">
-                    <a href="signedinindex.html" class="icon1">
-                        <i class="material-icons">home</i>
-                    </a>
+          <a href="signedinindex.html#creators" class="icon2">
+            <i class="material-icons">people</i>
+          </a>
 
-                    <a href="signedinindex.html#creators" class="icon2">
-                        <i class="material-icons">people</i>
-                    </a>
+          <a href="dashboard.html" class="icon3">
+            <i class="material-icons">dashboard</i>
+          </a>
 
-                    <a href="dashboard.html" class="icon3">
-                        <i class="material-icons">dashboard</i>
-                    </a>
+          <a href="logout.html" class="icon4">
+            <i class="material-icons">logout</i>
+          </a>
+        </div>
+        <div class="menulistadjust">
+          <ul class="menulist">
+            <li class="d-md-none d-lg-none">
+              <a href="signedinindex.html">Home</a>
+            </li>
+          </ul>
+          <ul class="menulist">
+            <li class="d-md-none d-lg-none">
+              <a href="signedinindex.html#creators">Creators</a>
+            </li>
+          </ul>
+          <ul class="menulist">
+            <li class="d-md-none d-lg-none">
+              <a href="dashboard.html" class="active">Dashboard</a>
+            </li>
+          </ul>
+          <ul class="menulist">
+            <li class="d-md-none d-lg-none">
+              <a href="logout.html">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
-                    <a href="logout.html" class="icon4">
-                        <i class="material-icons">logout</i>
-                    </a>
-                </div>
-                <div class="menulistadjust">
-                    <ul class="menulist">
-                        <li class="d-md-none d-lg-none">
-                            <a href="signedinindex.html">Home</a>
-                        </li>
-                    </ul>
-                    <ul class="menulist">
-                        <li class="d-md-none d-lg-none">
-                            <a href="signedinindex.html#creators">Creators</a>
-                        </li>
-                    </ul>
-                    <ul class="menulist">
-                        <li class="d-md-none d-lg-none">
-                            <a href="dashboard.html" class="active">Dashboard</a>
-                        </li>
-                    </ul>
-                    <ul class="menulist">
-                        <li class="d-md-none d-lg-none">
-                            <a href="logout.html">Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </header>
+    <div id="app">
+      <div class="container py-4 mt-5">
+        <div class="row mt-5">
+          <div class="col-md-8 bg-light">
+            <div class="py-5 mx-5">
+              <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
+              <!-- <img class="img-fluid p-4" id="trophies" /> -->
+              <h1 class="display-5 fw-bold" id="daysWithoutSmoke"></h1>
+              <p class="col fs-4">
+                Login daily to track your non-smoking days. Join the challenge
+                to reach 365 days!
+              </p>
+              <button
+                v-if="ready"
+                @click="addCount"
+                class="btn btn-primary btn-lg mx-auto"
+                type="button"
+                id="addday"
+              >
+                Another day
+              </button>
+              <button
+                v-else
+                @click="addCount"
+                class="btn btn-primary btn-lg"
+                type="button"
+                disabled
+              >
+                Check in tomorrow
+              </button>
 
-        <div id="app">
-            <div class="container py-4 mt-5">
-                <div class="row mt-5">
-                    <div class="col-md-8 bg-light">
-                        <div class="py-5 mx-5">
-                            <h1 class="display-5 fw-bold">Smoke-Free Streak:</h1>
-                            <h1 class="display-5 fw-bold" id="daysWithoutSmoke">
-
-                            </h1>
-                            <p class="col fs-4">
-                                Login daily to track your non-smoking days. Join the challenge
-                                to reach 365 days!
-                            </p>
-                            <button v-if="ready" @click="addCount" class="btn btn-primary btn-lg mx-auto" type="button"
-                                id="addday">
-                                Another day
-                            </button>
-                            <button v-else @click="addCount" class="btn btn-primary btn-lg" type="button" disabled>
-                                Check in tomorrow
-                            </button>
-
-                            <hr />
-                            <blockquote class="blockquote">
-                                <p class="pt-3 text-secondary"><em>{{quote}}</em></p>
-                                <footer class="blockquote-footer">{{author}}</footer>
-                            </blockquote>
+              <hr />
+              <blockquote class="blockquote">
+                <p class="pt-3 text-secondary"><em>{{quote}}</em></p>
+                <footer class="blockquote-footer">{{author}}</footer>
+              </blockquote>
               <hr />
               <button
                 class="btn btn-warning btn-sm mx-auto"
                 type="button"
                 id="resetdays"
-                @click="resetProgress"
               >
                 Reset Days
               </button>
-                        </div>
-                    </div>
-
-                    <div class="col bg-light">
-                        <img :src="image" class="img-fluid p-4" alt="Responsive image" />
-                        <div class="progress mt-1 mb-4">
-                            <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                                role="progressbar" :style="{ width: progress + '%' }"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
+          </div>
+
+          <div class="col bg-light">
+            <img class="img-fluid p-4" alt="Responsive image" id="medal" />
+            <div class="progress mt-1 mb-4">
+              <div
+                class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                id="progressbar"
+                :style="{ width: progress + '%' }"
+              ></div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <script>
-            Vue.createApp({
-                data() {
-                    return {
-                        progress: 0,
-                        clickTime: new Date("2022-11-11T00:00:00"),
-                        ready: true,
-                        awards: [
-                            "images/bronze.png",
-                            "images/silver.png",
-                            "images/gold.png",
-                            "images/trophy.png",
-                        ],
-                        image: "",
-                        quote: "",
-                        author: "",
-                    };
-                },
-                methods: {
-                    addCount() {
-                        //check how much time has elapsed since last clicked
-                        let now = new Date();
-                        let msBetweenDates = Math.abs(
-                            this.clickTime.getTime() - now.getTime()
-                        );
-                        let hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
-                        if (hoursBetweenDates >= 24) {
-                            this.count++;
-                            this.clickTime = now;
-                            this.addProgress();
-                            this.ready = false;
-                        } else {
-                            this.ready = false;
-                        }
-                    },
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            progress: 0,
+            clickTime: new Date("2022-11-11T00:00:00"),
+            ready: true,
+            awards: [
+              "images/bronze.png",
+              "images/silver.png",
+              "images/gold.png",
+              "images/trophy.png",
+            ],
+            image: "",
+            quote: "",
+            author: "",
+          };
+        },
+        methods: {
+          addCount() {
+            //check how much time has elapsed since last clicked
+            let now = new Date();
+            let msBetweenDates = Math.abs(
+              this.clickTime.getTime() - now.getTime()
+            );
+            let hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
+            if (hoursBetweenDates >= 24) {
+              this.count++;
+              this.clickTime = now;
+              this.addProgress();
+              this.ready = false;
+            } else {
+              this.ready = false;
+            }
+          },
 
-                    addProgress() {
-                        this.days++;
-                        this.progress = (this.days / 365) * 100;
-                        this.checkImg();
-                        this.motivate();
-                    },
+          addProgress() {
+            this.days++;
+            this.progress = (this.days / 365) * 100;
+            this.checkImg();
+            this.motivate();
+          },
 
           resetProgress() {
             this.days = 0;
@@ -196,168 +218,271 @@
             this.motivate;
           },
 
-                    checkImg() {
-                        if (this.progress < 25) {
-                            this.image = this.awards[0];
-                        } else if (this.progress < 75) {
-                            this.image = this.awards[1];
-                        } else if (this.progress < 100) {
-                            this.image = this.awards[2];
-                        } else {
-                            this.image = this.awards[3];
-                        }
-                    },
-
-                    motivate() {
-                        //update motivational quote
-                        fetch("http://api.quotable.io/random")
-                            .then((res) => res.json())
-                            .then((data) => {
-                                this.quote = `"${data.content}"`;
-                                this.author = `${data.author}`;
-                            });
-                    },
-                },
-
-                created() {
-                    // created is a hook that executes as soon as Vue instance is created
-
-                    //check if tracker button enabled
-                    let now = new Date();
-                    let msBetweenDates = Math.abs(
-                        this.clickTime.getTime() - now.getTime()
-                    );
-                    let hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
-                    if (hoursBetweenDates < 24) {
-                        this.ready = false;
-                    }
-
-                    //check medal progress bar
-                    this.progress = (this.days / 365) * 100;
-
-                    //medal image
-                    if (this.progress < 25) {
-                        this.image = this.awards[0];
-                    } else if (this.progress < 75 && this.progress < 75) {
-                        this.image = this.awards[1];
-                    } else {
-                        this.image = this.awards[2];
-                    }
-
-                    //Quote API
-                    fetch("http://api.quotable.io/random")
-                        .then((res) => res.json())
-                        .then((data) => {
-                            this.quote = `"${data.content}"`;
-                            this.author = `${data.author}`;
-                        });
-                }
-            }).mount("#app");
-        </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-
-        <script src="index.js"></script>
-
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
-            import {
-                getAuth,
-                updateProfile,
-                onAuthStateChanged,
-                setPersistence,
-                inMemoryPersistence,
-                browserLocalPersistence,
-            } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-            import { signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-            import {
-                signInWithPopup,
-                signInWithEmailAndPassword,
-                createUserWithEmailAndPassword,
-            } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-            import {
-                getDatabase,
-                ref,
-                onValue,
-                get,
-                child,
-                set,
-                update,
-            } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js";
-            import {
-                getFirestore,
-                doc,
-                collection,
-                getDocs,
-                getDoc,
-                onSnapshot,
-                updateDoc,
-                addDoc,
-                increment,
-                query,
-                where,
-            } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
-                authDomain: "freecode-56b4c.firebaseapp.com",
-                projectId: "freecode-56b4c",
-                storageBucket: "freecode-56b4c.appspot.com",
-                messagingSenderId: "8167992149",
-                appId: "1:8167992149:web:1a1b8361542208f168dddc",
-            };
-
-            //initialize firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            const auth = getAuth(app);
-            const db = getFirestore(app);
-            const user = auth.currentUser;
-            let nowuid = "";
-
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    // User is signed in, see docs for a list of available properties
-                    // https://firebase.google.com/docs/reference/js/firebase.User
-                    nowuid = user.uid;
-                } else {
-                    // User is signed out
-                    // ...
-                }
-            });
-
-            // collection ref
-
-            async function useraddaday() {
-                console.log(nowuid);
-
-                const q = query(
-                    collection(db, "dayscount"),
-                    where("uid", "==", nowuid)
-                );
-
-                const querySnapshot = await getDocs(q);
-                querySnapshot.forEach((docSnapshot) => {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(docSnapshot.id, " => ", docSnapshot.data());
-                    const newRef = doc(db, "dayscount", docSnapshot.id);
-                    updateDoc(newRef, {
-                        daycount: increment(1),
-                    });
-                    document.getElementById("daysWithoutSmoke").innerHTML =
-                        docSnapshot.data().daycount;
-                    console.log("function run");
-                });
-
-                const useraddday = document.getElementById("addday");
-                useraddday.addEventListener("click", useraddaday);
-                const daycount = document.getElementById("daycount");
+          checkImg() {
+            if (this.progress < 25) {
+              this.image = this.awards[0];
+            } else if (this.progress < 75) {
+              this.image = this.awards[1];
+            } else if (this.progress < 100) {
+              this.image = this.awards[2];
+            } else {
+              this.image = this.awards[3];
             }
-        </script>
-    </body>
+          },
+
+          motivate() {
+            //update motivational quote
+            fetch("http://api.quotable.io/random")
+              .then((res) => res.json())
+              .then((data) => {
+                this.quote = `"${data.content}"`;
+                this.author = `${data.author}`;
+              });
+          },
+        },
+
+        created() {
+          // created is a hook that executes as soon as Vue instance is created
+
+          //check if tracker button enabled
+          let now = new Date();
+          let msBetweenDates = Math.abs(
+            this.clickTime.getTime() - now.getTime()
+          );
+          let hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
+          if (hoursBetweenDates < 24) {
+            this.ready = false;
+          }
+
+          //check medal progress bar
+          this.progress = (this.days / 365) * 100;
+
+          //medal image
+          if (this.progress < 25) {
+            this.image = this.awards[0];
+          } else if (this.progress < 75 && this.progress < 75) {
+            this.image = this.awards[1];
+          } else {
+            this.image = this.awards[2];
+          }
+
+          //Quote API
+          fetch("http://api.quotable.io/random")
+            .then((res) => res.json())
+            .then((data) => {
+              this.quote = `"${data.content}"`;
+              this.author = `${data.author}`;
+            });
+        },
+      }).mount("#app");
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="index.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
+      import {
+        getAuth,
+        updateProfile,
+        onAuthStateChanged,
+        setPersistence,
+        inMemoryPersistence,
+        browserLocalPersistence,
+      } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+      import { signInWithRedirect } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+      import {
+        signInWithPopup,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        get,
+        child,
+        set,
+        update,
+      } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-database.js";
+      import {
+        getFirestore,
+        doc,
+        collection,
+        getDocs,
+        getDoc,
+        onSnapshot,
+        updateDoc,
+        addDoc,
+        increment,
+        query,
+        where,
+      } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDoJzxr5VfFnkAr8nyoZ2LKiSYu6dWt1vs",
+        authDomain: "freecode-56b4c.firebaseapp.com",
+        projectId: "freecode-56b4c",
+        storageBucket: "freecode-56b4c.appspot.com",
+        messagingSenderId: "8167992149",
+        appId: "1:8167992149:web:1a1b8361542208f168dddc",
+      };
+
+      //initialize firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const user = auth.currentUser;
+      let nowuid = "";
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          nowuid = user.uid;
+          // console.log(user.uid);
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+
+      async function loaddayonpage() {
+        const loaddays = query(
+          collection(db, "dayscount"),
+          where("uid", "==", nowuid)
+        );
+
+        const querySnapshot = await getDocs(loaddays);
+        querySnapshot.forEach((docSnapshot) => {
+          // doc.data() is never undefined for query doc snapshots
+          const newRef = doc(db, "dayscount", docSnapshot.id);
+
+          document.getElementById("daysWithoutSmoke").innerHTML = `<h1>Day: ${
+            docSnapshot.data().daycount
+          }</h1>`;
+
+          if (docSnapshot.data().daycount < 25) {
+            document.getElementById("medal").src = "images/bronze.png";
+          } else if (docSnapshot.data().daycount < 200) {
+            document.getElementById("medal").src = "images/silver.png";
+          } else if (docSnapshot.data().daycount < 360) {
+            document.getElementById("medal").src = "images/gold.png";
+          } else {
+            document.getElementById("medal").src = "images/trophy.png";
+          }
+
+          let progressbar = (docSnapshot.data().daycount / 365) * 100;
+
+          document.getElementById("progressbar").style.width =
+            progressbar + "%";
+        });
+      }
+
+      setInterval(loaddayonpage, 500);
+
+      // collection ref
+
+      async function useraddaday() {
+        console.log(nowuid);
+
+        const q = query(
+          collection(db, "dayscount"),
+          where("uid", "==", nowuid)
+        );
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((docSnapshot) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(docSnapshot.id, " => ", docSnapshot.data());
+          const newRef = doc(db, "dayscount", docSnapshot.id);
+          updateDoc(newRef, {
+            daycount: increment(1),
+          });
+
+          if (docSnapshot.data().daycount < 25) {
+            document.getElementById("medal").src = "images/bronze.png";
+          } else if (docSnapshot.data().daycount < 200) {
+            document.getElementById("medal").src = "images/silver.png";
+          } else if (docSnapshot.data().daycount < 360) {
+            document.getElementById("medal").src = "images/gold.png";
+          } else {
+            document.getElementById("medal").src = "images/trophy.png";
+          }
+
+          let progressbar = (docSnapshot.data().daycount / 365) * 100;
+
+          document.getElementById("progressbar").style.width =
+            progressbar + "%";
+
+          // if (docSnapshot.data().daycount % 365 == 0) {
+          //   document.getElementById("medal").src = "images/bronze.png";
+          //   // numberoftrophies = docSnapshot.data().daycount floor divide 365
+          //   // for (p = 0; p < numberoftrophies; p++) {
+          //   //   document.getElementById("trophies").src = "images/trophy.png";
+          //   //   document.getElementById("trophies").style.width = "100px";
+          //   // }
+          //   document.getElementById("trophies").src = "images/trophy.png";
+          //   document.getElementById("trophies").style.width = "100px";
+          //   let morethan365 = 0;
+          //   let progressbar = (morethan365 / 365) * 100;
+
+          //   document.getElementById("progressbar").style.width =
+          //     progressbar + "%";
+          // } else {
+          //   let progressbar = (docSnapshot.data().daycount / 365) * 100;
+
+          //   document.getElementById("progressbar").style.width =
+          //     progressbar + "%";
+          // }
+        });
+      }
+
+      const useraddday = document.getElementById("addday");
+      useraddday.addEventListener("click", useraddaday);
+      const daycount = document.getElementById("daycount");
+
+      async function userresetdaysf() {
+        const q = query(
+          collection(db, "dayscount"),
+          where("uid", "==", nowuid)
+        );
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((docSnapshot) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(docSnapshot.id, " => ", docSnapshot.data());
+          const newRef = doc(db, "dayscount", docSnapshot.id);
+          updateDoc(newRef, {
+            daycount: 0,
+          });
+
+          if (docSnapshot.data().daycount < 25) {
+            document.getElementById("medal").src = "images/bronze.png";
+          } else if (docSnapshot.data().daycount < 200) {
+            document.getElementById("medal").src = "images/silver.png";
+          } else if (docSnapshot.data().daycount < 360) {
+            document.getElementById("medal").src = "images/gold.png";
+          } else {
+            document.getElementById("medal").src = "images/trophy.png";
+          }
+
+          let progressbar = (docSnapshot.data().daycount / 365) * 100;
+
+          document.getElementById("progressbar").style.width =
+            progressbar + "%";
+        });
+      }
+
+      const userresetdays = document.getElementById("resetdays");
+      userresetdays.addEventListener("click", userresetdaysf);
     </script>
   </body>
 </html>
