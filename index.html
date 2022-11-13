@@ -1,180 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Breathtakers</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />  
-          
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <body>
-    <header>
-      <a href="#" class="logo">Breathtakers</a>
-      <nav>
-        <ul>
-          <li class="col-lg-3 d-none d-md-block">
-            <a href="index.html" class="active">Home</a>
-          </li>
-          <li class="col-lg-3 d-none d-md-block">
-            <a href="#creators">Creators</a>
-          </li>
-          <li class="col-lg-3 d-none d-md-block">
-            <a href="signup.html">Sign Up</a>
-          </li>
-          <li class="col-lg-3 d-none d-md-block">
-            <a href="login.html">Log In</a>
-          </li>
-          <!-- <li><a href="newsfeedAPI_vue.html">Newsfeed</a></li>
-          <li><a href="https://freecode-56b4c.web.app/">Events</a></li> -->
-        </ul>
-      </nav>
-      <div id="topNav" class="navigation d-md-none d-lg-none">
-        <span id="closebtn" onclick="navToggle()">
-          <span class="line1"></span>
-          <span class="line2"></span>
-          <span class="line3"></span>
-        </span>
-        <div class="logo2">
-          <img src="" />
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Breathtakers</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <header>
+            <a href="#" class="logo">Breathtakers</a>
+            <nav>
+                <ul>
+                    <li class="col-lg-3 d-none d-md-block">
+                        <a href="index.html" class="active">Home</a>
+                    </li>
+                    <li class="col-lg-3 d-none d-md-block">
+                        <a href="#creators">Creators</a>
+                    </li>
+                    <li class="col-lg-3 d-none d-md-block">
+                        <a href="signup.html">Sign Up</a>
+                    </li>
+                    <li class="col-lg-3 d-none d-md-block">
+                        <a href="login.html">Log In</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="topNav" class="navigation d-md-none d-lg-none">
+                <span id="closebtn" onclick="navToggle()">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </span>
+                <div class="logo2">
+                    <img src="" />
+                </div>
+                <div class="icons">
+                    <a href="index.html" class="icon1">
+                        <i class="material-icons">home</i>
+                    </a>
+
+                    <a href="#creators" class="icon2">
+                        <i class="material-icons">people</i>
+                    </a>
+
+                    <a href="signup.html" class="icon3">
+                        <i class="material-icons">history_edu</i>
+                    </a>
+
+                    <a href="login.html" class="icon4">
+                        <i class="material-icons">login</i>
+                    </a>
+
+                </div>
+                <div class="menulistadjust">
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="index.html" class="active">Home</a></li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                    <ul class="menulist">
+                        <li class="d-md-none d-lg-none"><a href="login.html">Log In</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>
+        <section>
+            <img src="images/stars.png" id="stars" />
+            <img src="images/moon.png" id="moon" />
+            <img src="images/mountains_behind.png" id="mountains_behind" />
+            <h2 id="welcometext">Breathtakers</h2>
+            <a href="#sec" id="btn">About Us</a>
+            <img src="images/mountains_front.png" id="mountains_front" />
+        </section>
+        <div class="sec" id="sec">
+            <h2>The go-to tracking app to help curb smoking.</h2>
+            <p>
+                Breathtakers is a student-developed website that aims to motivate
+                current smokers to stop smoking through distractions and informative
+                news that sway them away from their unhealthy habits. <br /><br />
+                This website contains a
+                <strong style="color: rosybrown">tracker to count non-smoking days</strong>, <strong
+                    style="color: rosybrown">games</strong> that divert users
+                attention from smoking, a
+                <strong style="color: rosybrown">news page</strong> that features
+                smoking articles, and finally, an
+                <strong style="color: rosybrown">events page</strong> where users can
+                sign up for activites to distract themselves from puffing.<br /><br />
+                Sign up by clicking the
+                <strong style="color: burlywood">signup button</strong> above to access
+                these features!<br />If you are an existing user, click on the
+                <strong style="color: burlywood">login button</strong> above to log in
+                to your account. <br /><br />
+                We hope that this website can benefit those that require help, and even
+                those who prefer a discreet means of helping oneself. <br /><br />
+                Below are some helpful links about controls and programmes to limit
+                smoking in Singapore.
+            </p>
+            <br />
+            <ul>
+                <li>
+
+                    <a href="https://hpb.gov.sg/workplace/workplace-programmes/smoking-cessation-programmes"
+                        type="button" target="_blank" class="btn btn-outline-light" style="border-radius: 20px;">
+                        Smoking Cessation Programmes
+                    </a>
+
+                </li>
+                <li>
+
+                    <a href="https://www.hpb.gov.sg/newsroom/article/smoking-control-programmes-for-adults"
+                        type="button" target="_blank" class="btn btn-outline-light" style="border-radius: 20px;">
+                        Smoking Control Programmes for Adults
+                    </a>
+
+
+                </li>
+            </ul>
         </div>
-<div class="icons">
-        <a href="index.html" class="icon1">
-          <i class="material-icons">home</i>
-                </a>
 
-        <a href="#creators" class="icon2">
-          <i class="material-icons">people</i>
-                </a>
+        <div class="sec" id="creators">
+            <h2>The Creators</h2>
+            <p>
+                Breathtakers is a student-developed website created and developed by a
+                team of Information System students from SMU. The team consists of
+                Bradley, Shiva, Vincent and Deene. <br /><br />
+                This website was developed as a Web Application Development project in
+                AY2022-2023.
+            </p>
+        </div>
 
-        <a href="signup.html" class="icon3">
-          <i class="material-icons">history_edu</i>
-                </a>
+        <script>
+            let stars = document.getElementById("stars");
+            let moon = document.getElementById("moon");
+            let mountains_behind = document.getElementById("mountains_behind");
+            let mountains_front = document.getElementById("mountains_front");
+            let text = document.getElementById("welcometext");
+            let btn = document.getElementById("btn");
+            let header = document.querySelector("header");
 
-        <a href="login.html" class="icon4">
-          <i class="material-icons">login</i>
-                </a>
-              
-              </div>
-              <div class="menulistadjust">
-        <ul class="menulist">
-          <li class="d-md-none d-lg-none"><a href="index.html" class="active">Home</a></li>
-        </ul>
-        <ul class="menulist">
-          <li class="d-md-none d-lg-none"><a href="#creators">Creators</a></li>
-        </ul>
-        <ul class="menulist">
-          <li class="d-md-none d-lg-none"><a href="signup.html">Sign Up</a></li>
-        </ul>
-        <ul class="menulist">
-          <li class="d-md-none d-lg-none"><a href="login.html">Log In</a></li>
-        </ul>
-      </div>
-      </div>
+            window.addEventListener("scroll", function () {
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + "px";
+                moon.style.top = value * 0.65 + "px";
+                mountains_behind.style.top = value * 0.5 + "px";
+                mountains_front.style.top = value * 0 + "px";
+                text.style.marginRight = value * 1 + "px";
+                // text.style.marginTop = value * 1 + "px";
+                btn.style.marginTop = value * 1 + "px";
+                header.style.top = value * 0.5 + "px";
+            });
+        </script>
+        <script src="index.js"></script>
+    </body>
 
-
-    </header>
-    <section>
-      <img src="images/stars.png" id="stars" />
-      <img src="images/moon.png" id="moon" />
-      <img src="images/mountains_behind.png" id="mountains_behind" />
-      <h2 id="welcometext">Breathtakers</h2>
-      <a href="#sec" id="btn">About Us</a>
-      <img src="images/mountains_front.png" id="mountains_front" />
-    </section>
-    <div class="sec" id="sec">
-      <h2>The go-to tracking app to help curb smoking.</h2>
-      <p>
-        Breathtakers is a student-developed website that aims to motivate
-        current smokers to stop smoking through distractions and informative
-        news that sway them away from their unhealthy habits. <br /><br />
-        This website contains a
-        <strong style="color: rosybrown"
-          >tracker to count non-smoking days</strong
-        >, <strong style="color: rosybrown">games</strong> that divert users
-        attention from smoking, a
-        <strong style="color: rosybrown">news page</strong> that features
-        smoking articles, and finally, an
-        <strong style="color: rosybrown">events page</strong> where users can
-        sign up for activites to distract themselves from puffing.<br /><br />
-        Sign up by clicking the
-        <strong style="color: burlywood">signup button</strong> above to access
-        these features!<br />If you are an existing user, click on the
-        <strong style="color: burlywood">login button</strong> above to log in
-        to your account. <br /><br />
-        We hope that this website can benefit those that require help, and even
-        those who prefer a discreet means of helping oneself. <br /><br />
-        Below are some helpful links about controls and programmes to limit
-        smoking in Singapore.
-      </p>
-      <br />
-      <ul>
-        <li>
-
-          <button href="https://hpb.gov.sg/workplace/workplace-programmes/smoking-cessation-programmes"
-          type="button" 
-          target="_blank"
-          class="btn btn-outline-light" style="border-radius: 20px;">
-            Smoking Cessation Programmes
-          </button>
-
-        </li>
-        <li>
-
-          <button href="https://www.hpb.gov.sg/newsroom/article/smoking-control-programmes-for-adults"
-          type="button" 
-          target="_blank"
-          class="btn btn-outline-light" style="border-radius: 20px;">
-          Smoking Control Programmes for Adults
-          </button>
-
-          
-        </li>
-      </ul>
-    </div>
-
-    <div class="sec" id="creators">
-      <h2>The Creators</h2>
-      <p>
-        Breathtakers is a student-developed website created and developed by a
-        team of Information System students from SMU. The team consists of
-        Bradley, Shiva, Vincent and Deene. <br /><br />
-        This website was developed as a Web Application Development project in
-        AY2022-2023.
-      </p>
-    </div>
-
-    <script>
-      let stars = document.getElementById("stars");
-      let moon = document.getElementById("moon");
-      let mountains_behind = document.getElementById("mountains_behind");
-      let mountains_front = document.getElementById("mountains_front");
-      let text = document.getElementById("welcometext");
-      let btn = document.getElementById("btn");
-      let header = document.querySelector("header");
-
-      window.addEventListener("scroll", function () {
-        let value = window.scrollY;
-        stars.style.left = value * 0.25 + "px";
-        moon.style.top = value * 0.65 + "px";
-        mountains_behind.style.top = value * 0.5 + "px";
-        mountains_front.style.top = value * 0 + "px";
-        text.style.marginRight = value * 1 + "px";
-        // text.style.marginTop = value * 1 + "px";
-        btn.style.marginTop = value * 1 + "px";
-        header.style.top = value * 0.5 + "px";
-      });
-    </script>
-    <script src="index.js"></script>
-  </body>
 </html>
-
