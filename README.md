@@ -9,6 +9,12 @@ email: turnip@gmail.com
 password: turnip123
 
 # References/Credits
+Main page (parallax scrolling):
+https://youtu.be/1wfeqDyMUx4 
+
+drive link for main page images:
+https://drive.google.com/drive/mobile/folders/1Anyt4NmNps76aet-2Z4qY0NSYl4bJcFx?usp=sharing 
+
 Firebase Firestore: https://firebase.google.com/docs/firestore/manage-data/add-data 
 
 Animated login/signup page: https://www.youtube.com/watch?v=eeHqZeJ9Vqc&ab_channel=CodingNepal 
@@ -23,4 +29,5 @@ Quotable.io API:
 https://github.com/lukePeavey/quotable
 
 NYT Article Search API:
-https://developer.nytimes.com/docs/articlesearch-product/1/overview 
+https://developer.nytimes.com/docs/articlesearch-product/1/overview
+
