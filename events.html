@@ -64,18 +64,15 @@
                 </div>
                 <div class="menulistadjust">
                     <ul class="menulist">
-                        <li class="d-md-none d-lg-none"><a
-                                href="signedinindex.html">Home</a>
+                        <li class="d-md-none d-lg-none"><a href="signedinindex.html">Home</a>
                         </li>
                     </ul>
                     <ul class="menulist">
-                        <li class="d-md-none d-lg-none"><a
-                                href="signedinindex.html#creators">Creators</a>
+                        <li class="d-md-none d-lg-none"><a href="signedinindex.html#creators">Creators</a>
                         </li>
                     </ul>
                     <ul class="menulist">
-                        <li class="d-md-none d-lg-none"><a href="dashboard.html"
-                                class="active">Dashboard</a></li>
+                        <li class="d-md-none d-lg-none"><a href="dashboard.html" class="active">Dashboard</a></li>
                     </ul>
                     <ul class="menulist">
                         <li class="d-md-none d-lg-none"><a href="logout.html">Log
@@ -214,8 +211,7 @@
         async function createEvent() {
             const newDoc = await addDoc(events, {
                 title: "BBQ Dinner",
-                description:
-                    "Meet new friends (or hang out with old ones) on a fun night out with BBQ chicken and steak! Individuals and groups are both welcome.",
+                description: "Meet new friends (or hang out with old ones) on a fun night out with BBQ chicken and steak! Individuals and groups are both welcome.",
                 date: Timestamp.fromDate(new Date("November 19, 2022 19:30:00")),
                 category: "food",
             });
@@ -225,7 +221,6 @@
             const snapshot = await getCountFromServer(events);
             document.getElementById("eventsCount").innerHTML = `<h2>${snapshot.data().count
                 } Upcoming Events</h2>`;
-            console.log(snapshot.data().count);
         }
 
         async function queryDoc() {
